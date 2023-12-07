@@ -2,13 +2,13 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First step is to clone this repository to your local machine.
+1. First step is to clone this repository to your local machine.
 
 ```plaintext
 git clone https://github.com/starprince7/Orange-Group-Shopping-Store.git
 ```
 
-Install all dependencies after cloning into this repository.
+2. Install all dependencies after cloning into this repository.
 
 ```bash
 npm install
@@ -20,7 +20,7 @@ or
 yarn
 ```
 
-Second, run the development server:
+3. Second, run the development server:
 
 ```bash
 npm run dev
