@@ -1,7 +1,6 @@
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
-import { Product } from "@/hook/useProducts";
-import { useFetch } from "@/hook/usefetch";
+import { Product } from "@/types";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 
@@ -11,7 +10,7 @@ export default function DetailsPage() {
   } = useRouter();
   const [isUpdating, setIsUpdating] = useState(false);
   const [loading, setLoading] = useState(true);
-  const [details, setDetails] = useState<Product>({});
+  const [details, setDetails] = useState<Product>();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -35,22 +34,22 @@ export default function DetailsPage() {
       <Header />
       <div className="sm:flex items-center px-5 pb-10">
         <div className=" sm:w-1/2">
-          <img src={details.image} alt="Product image" />
+          <img src={details?.image} alt="Product image" />
         </div>
         <div className="sm:w-1/2 pl-14 pr-5 space-y-4 text-white bg-zinc-900 h-[100vh] grid content-center">
           <div>
             <h3 className="font-semibold mb-2 underline capitalize">
-              {details.category}
+              {details?.category}
             </h3>
-            <h3 className="font-bold text-3xl">{details.title}</h3>
-            <p className="text-xl font-semibold my-3">${details.price}</p>
+            <h3 className="font-bold text-3xl">{details?.title}</h3>
+            <p className="text-xl font-semibold my-3">${details?.price}</p>
             <textarea
               rows={5}
               className={`text-sm bg-inherit w-full block my-2 ${
                 !isUpdating && "outline-none"
               } py-5`}
               onFocus={() => setIsUpdating(true)}
-              defaultValue={details.description}
+              defaultValue={details?.description}
             ></textarea>
             {isUpdating && (
               <button
